@@ -46,6 +46,15 @@ public class Model {
 		return this.cibi;
 	}
 	
+	public String simula(Food cibo, int K) {
+		Simulator simulator=new Simulator(graph, this);
+		simulator.setK(K);
+		simulator.init(cibo);
+		simulator.run();
+		String messaggio=String.format("Preparati %d cibi in %f minuti\n", simulator.getCibiPreparati(), simulator.getTempoPreparazione());
+		return messaggio;
+	}
+	
 	public List<FoodCalories> elencoCibiConnessi(Food f) {
 		
 	List<FoodCalories> result=new ArrayList<FoodCalories>();
